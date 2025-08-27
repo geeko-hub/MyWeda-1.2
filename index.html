@@ -1,0 +1,122 @@
+            <<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWeda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                    </svg>
+                    <h1>MyWeda</h1>
+                </div>
+                <p class="subtitle">Prévisions météorologiques en temps réel</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Rechercher une ville au Niger..." 
+                            class="search-input"
+                            autocomplete="off"
+                        >
+                        <button id="searchBtn" class="search-btn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                            Rechercher
+                        </button>
+                    </div>
+                    
+                    <!-- Dropdown -->
+                    <div id="dropdown" class="dropdown">
+                        <ul id="cityList" class="city-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading and Error Messages -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Chargement des données météo...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- Weather Display -->
+            <section id="weather" class="weather-section"></section>
+
+            <!-- Chart Controls -->
+            <section class="chart-controls" id="chartControls" style="display: none;">
+                <div class="control-buttons">
+                    <button id="tempBtn" class="control-btn active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>
+                        </svg>
+                        Température
+                    </button>
+                    <button id="precipBtn" class="control-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v1"/>
+                            <path d="M12 21v1"/>
+                            <path d="M4.22 4.22l.707.707"/>
+                            <path d="M18.364 18.364l.707.707"/>
+                            <path d="M1 12h1"/>
+                            <path d="M22 12h1"/>
+                            <path d="M4.22 19.78l.707-.707"/>
+                            <path d="M18.364 5.636l.707-.707"/>
+                        </svg>
+                        Précipitations
+                    </button>
+                </div>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="chart-section" id="chartSection" style="display: none;">
+                <div class="chart-container">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GeekoHub. Données fiables et actualisées.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
